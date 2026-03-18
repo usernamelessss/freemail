@@ -1,4 +1,3 @@
-# wrangler.toml
 name = 'anymore-free-mail'
 main = "src/server.js"
 compatibility_date = "2026-03-18"
@@ -6,30 +5,18 @@ compatibility_date = "2026-03-18"
 # D1 数据库绑定
 [[d1_databases]]
 binding = "TEMP_MAIL_DB"
-database_name = "maill_free_db" #你的d1数据库名称
-database_id = "3e5777a4-0ddf-1f69-74f3-e82ad1a2ce09" # 你的database_id
-# 登录会话过期时间（单位：天，默认7天）
-# 环境变量
+database_name = "maill_free_db"
+database_id = "3e5777a4-0ddf-1f69-74f3-e82ad1a2ce09"
 
-[vars]
-# FORWARD_RULES="[{"prefix":"vip","email":"a@example.com"},{"prefix":"*","email":"2141083706@qq.com"}]"
-
-
-# 静态资源目录（Workers + Assets）
-[assets]
-directory = "public"
-# 显式指定绑定名，确保在 Worker 中通过 env.ASSETS 可用
-binding = "ASSETS"
-
-
-# R2 存储桶绑定（用于保存完整 EML 内容）
+# R2 存储桶绑定
 [[r2_buckets]]
 binding = "MAIL_EML"
 bucket_name = "mail-eml"
 
-# wrangler.toml (wrangler v3.88.0^) 日志服务
-# [observability.logs]
-# enabled = true
+# 静态资源
+[assets]
+directory = "public"
+binding = "ASSETS"
 
-
-
+# 敏感配置建议不要放在这里
+# FORWARD_RULES 请使用 wrangler secret put 或 .dev.vars 处理
