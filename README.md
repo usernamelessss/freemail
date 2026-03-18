@@ -1,8 +1,8 @@
 # Freemail - 临时邮箱服务
 
-[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://github.com/usernamelessss/freemail)
+[![Deploy to Cloudflare Workers](https://deploy.workers.cloudflare.com/button)](https://deploy.workers.cloudflare.com/?url=https://github.com/usernamelessss/freemail)
 
-一个基于 Cloudflare Workers + D1 + R2 构建的**开源临时邮箱服务**，支持邮件接收、发送、转发、用户管理等完整功能。 
+一个基于 Cloudflare Workers + D1 + R2 构建的 **开源临时邮箱服务**，支持邮件接收、发送、转发、用户管理等完整功能。 
 
 完整文档查看: https://github.com/usernamelessss/freemail
 
@@ -62,7 +62,7 @@
 | FORWARD_RULES | 邮件转发规则 | 否 |
 
 <details>
-<summary><strong>RESEND_API_KEY 配置格式</strong></summary>
+<summary> <strong> RESEND_API_KEY 配置格式 </strong> </summary>
 
 ```bash
 # 单密钥（向后兼容）
@@ -71,7 +71,7 @@ RESEND_API_KEY="re_xxxxxxxxxxxxxxxxxxxxxxxx"
 # 键值对格式（推荐）
 RESEND_API_KEY="domain1.com=re_key1,domain2.com=re_key2"
 
-# JSON格式
+# JSON 格式
 RESEND_API_KEY='{"domain1.com":"re_key1","domain2.com":"re_key2"}'
 ```
 
@@ -79,7 +79,7 @@ RESEND_API_KEY='{"domain1.com":"re_key1","domain2.com":"re_key2"}'
 </details>
 
 <details>
-<summary><strong>FORWARD_RULES 配置格式</strong></summary>
+<summary> <strong> FORWARD_RULES 配置格式 </strong> </summary>
 
 规则按前缀匹配，`*` 为兜底规则。
 
@@ -95,7 +95,7 @@ RESEND_API_KEY='{"domain1.com":"re_key1","domain2.com":"re_key2"}'
 # 键值对格式
 FORWARD_RULES="vip=a@example.com,news=b@example.com,*=fallback@example.com"
 
-# JSON格式
+# JSON 格式
 FORWARD_RULES='[{"prefix":"vip","email":"a@example.com"},{"prefix":"*","email":"fallback@example.com"}]'
 
 # 禁用转发
@@ -106,7 +106,7 @@ FORWARD_RULES="" 或 "disabled" 或 "none"
 ## 故障排除
 
 <details>
-<summary><strong>常见问题</strong></summary>
+<summary> <strong> 常见问题 </strong> </summary>
 
 1. **邮件接收不到**：检查 Email Routing 配置、MX 记录、MAIL_DOMAIN 变量
 2. **数据库连接错误**：确认 D1 绑定名为 `TEMP_MAIL_DB`，检查 database_id
@@ -115,7 +115,7 @@ FORWARD_RULES="" 或 "disabled" 或 "none"
 </details>
 
 <details>
-<summary><strong>调试技巧</strong></summary>
+<summary> <strong> 调试技巧 </strong> </summary>
 
 ```bash
 # 本地调试
